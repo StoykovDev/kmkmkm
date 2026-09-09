@@ -493,7 +493,19 @@ svg{ display:block; }
   box-shadow:var(--shadow-sm);
   transition:border-color .3s ease, transform .4s var(--ease), box-shadow .3s ease, background-image .3s ease;
 }
-.cat-card::before,
+.cat-card::before{
+  content:'';
+  position:absolute;
+  left:var(--sp-3);
+  right:var(--sp-3);
+  bottom:var(--sp-3);
+  height:54px;
+  background:rgba(0,0,0,.78);
+  border-radius:2px;
+  opacity:1;
+  pointer-events:none;
+  z-index:2;
+}
 .cat-card::after{
   content:'';
   position:absolute;
@@ -503,12 +515,6 @@ svg{ display:block; }
   pointer-events:none;
 }
 .cat-card:hover{ border-color:var(--clay); transform:translateY(-4px); box-shadow:var(--shadow-md); }
-.cat-card .cat-icon{
-  position:relative; z-index:3;
-  width:38px; height:38px;
-  color:var(--white);
-  margin-bottom:auto;
-}
 .cat-card h3{
   position:relative; z-index:3;
   font-size:1.3rem;
@@ -772,7 +778,24 @@ svg{ display:block; }
 }
 .product-card:hover{ border-color:var(--clay); transform:translateY(-4px); box-shadow:var(--shadow-md); }
 .product-card.is-hidden{ display:none; }
-.product-card .ph-media{ aspect-ratio:4/3; position:relative; }
+.product-card .ph-media{ 
+  aspect-ratio:4/3;
+  position:relative;
+  background:var(--white);
+  border-bottom:1px solid var(--line);
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.product-card .ph-media img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:center center;
+  background:var(--white);
+}
 .product-card .tag-new{
   position:absolute; top:12px; left:0;
   background:var(--clay); color:var(--ink);
@@ -840,7 +863,22 @@ svg{ display:block; }
   grid-auto-rows:150px;
   gap:10px;
 }
-.gallery-grid .ph-media{ border:1px solid var(--line); }
+.gallery-grid .ph-media{
+  border:1px solid var(--line);
+  background:var(--white);
+  overflow:hidden;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.gallery-grid .ph-media img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:center center;
+}
 .gallery-grid > div:nth-child(1){ grid-column:span 2; grid-row:span 2; }
 .gallery-grid > div:nth-child(4){ grid-row:span 2; }
 @media (max-width:760px){
