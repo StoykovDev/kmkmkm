@@ -1,0 +1,14 @@
+# robots.txt за kayobulgaria.com
+# Позволява пълно индексиране на сайта и сочи към sitemap-а
+
+User-agent: *
+Allow: /
+
+# Блокирай технически/служебни пътища, ако съществуват (CDN защита на имейли, форми и др.)
+Disallow: /cdn-cgi/
+
+# Ако в бъдеще добавиш филтри, търсене или количка с параметри, добави например:
+# Disallow: /*?*sort=
+# Disallow: /*?*filter=
+
+Sitemap: https://kayobulgaria.com/sitemap.xml
