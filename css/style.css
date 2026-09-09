@@ -404,6 +404,21 @@ svg{ display:block; }
   height:100%;
   object-fit:contain;
 }
+@media (max-width: 560px){
+  .hero-inner{
+    grid-template-columns:1fr;
+    gap:var(--sp-3);
+  }
+  .hero-art{
+    width:min(360px, 84vw);
+    max-width:100%;
+    margin:0 auto;
+  }
+  .hero-art .ph-media img{
+    width:96%;
+    height:96%;
+  }
+}
 .hero-badge{
   position:absolute; top:20px; left:-38px;
   transform:rotate(-45deg);
@@ -461,41 +476,53 @@ svg{ display:block; }
 .cat-card{
   position:relative;
   border:1px solid var(--line);
-  background:var(--cream);
+  background-image:none;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
   padding:var(--sp-3);
   display:flex;
   flex-direction:column;
   justify-content:flex-end;
   overflow:hidden;
   box-shadow:var(--shadow-sm);
-  transition:border-color .3s ease, transform .4s var(--ease), box-shadow .3s ease;
+  transition:border-color .3s ease, transform .4s var(--ease), box-shadow .3s ease, background-image .3s ease;
 }
 .cat-card::before{
   content:'';
   position:absolute; inset:0;
-  background:linear-gradient(160deg, transparent 40%, rgba(232,93,14,.16));
-  opacity:0;
+  background:linear-gradient(180deg, rgba(24,21,17,.04), rgba(24,21,17,.7));
+  opacity:1;
+  transition:opacity .4s ease;
+}
+.cat-card::after{
+  content:'';
+  position:absolute; inset:0;
+  background:linear-gradient(160deg, transparent 40%, rgba(232,93,14,.22));
+  opacity:.8;
   transition:opacity .4s ease;
 }
 .cat-card:hover{ border-color:var(--clay); transform:translateY(-4px); box-shadow:var(--shadow-md); }
-.cat-card:hover::before{ opacity:1; }
+.cat-card:hover::before{ opacity:.9; }
+.cat-card:hover::after{ opacity:1; }
 .cat-card .cat-icon{
+  position:relative; z-index:3;
   width:38px; height:38px;
-  color:var(--clay);
+  color:var(--white);
   margin-bottom:auto;
 }
 .cat-card h3{
-  position:relative; z-index:2;
+  position:relative; z-index:3;
   font-size:1.3rem;
   text-transform:uppercase;
   font-style:italic;
-  color:var(--ink);
+  color:var(--white);
 }
 .cat-card .cat-go{
-  position:relative; z-index:2;
+  position:relative; z-index:3;
   margin-top:.5em;
   font-size:.78rem;
-  color:var(--ink-dim);
+  color:var(--white);
   letter-spacing:.04em;
   display:flex; align-items:center; gap:.4em;
 }
